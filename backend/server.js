@@ -6,7 +6,11 @@ const server = require("http").createServer(app);
 // const http = require("http");
 // const server = http.createServer(app);
 
-const io = require("socket.io")(server);
+const io = require("socket.io")(server, {
+    cors : {
+        origin : "*", // just for learning purpose, not recommended
+    }
+});
 
 
 io.on("connection", (socket) => {
